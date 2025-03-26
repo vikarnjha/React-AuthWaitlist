@@ -1,14 +1,23 @@
-import userModel from "../models/user.model"
-import newsletterModel from "../models/waitlist.model"
-import { sendEmail } from "../utils/utility"
+import userModel from "../models/user.model.js";
+import newsletterModel from "../models/newsletter.model.js";
+import { sendEmail } from "../utils/utility.js";
 
 const joinNewsletter = async (req, res) => {
- const user = await userModel.findById(req._id)
- await sendEmail(user.email, `Hello! ${user.name} `, `Thank you for joining our newsletter!`)
- await newsletterModel.create({
-    user: user.name,
-    email: user.email
- })
-
-} 
-export{joinNewsletter}
+  try {
+    console.log(req._id);
+    const user = await userModel.findById(req._id);
+    console.log(user);
+    await sendEmail(
+      user.email,
+      `Hello! ${user.name} Thank you for joining our newsletter!`
+    );
+    await newsletterModel.create({
+      user: user.name,
+      email: user.email,
+    });
+    res.status(200).json({ message: "Successfully joined", success: true });
+  } catch (err) {
+    res.status(500).json({ message: err.message, success: false });
+  }
+};
+export { joinNewsletter };

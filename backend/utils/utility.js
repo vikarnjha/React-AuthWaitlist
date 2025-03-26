@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const sendEmail = async (to, message) => {
+const sendEmail = async (to, message) => {
   try {
     const mailOptions = {
       from: process.env.EMAIL_USER,

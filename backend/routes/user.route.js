@@ -1,5 +1,8 @@
 import express from "express";
-import { joinWaitlist } from "../controller/user.controller.js";
+import { protectedRoute } from "../middleware/auth.js";
+import { joinNewsletter } from "../controller/user.controller.js";
+
 const userRouter = express.Router();
-userRouter.route("/waitlist").post(joinWaitlist);
+userRouter.use(protectedRoute);
+userRouter.route("/newsletter").post(joinNewsletter);
 export default userRouter;
