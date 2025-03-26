@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 
-const WaitlistSchema = new mongoose.Schema({
+const NewsletterSchema = new mongoose.Schema({
+  name: String,
   email: String,
   
 }, { timestamps: true });
 
-export default mongoose.model("waitlist", WaitlistSchema);
+const newsletterModel = mongoose.models.newsletter || mongoose.model("newsletter", NewsletterSchema);
+
+export default newsletterModel;
