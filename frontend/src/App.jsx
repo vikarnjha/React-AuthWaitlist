@@ -5,11 +5,13 @@ import Home from "./component/Home";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import Profile from "./component/Profile";
+import Contact from "./component/Contact";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Homepage route  */}
         <Route
           path="/"
           element={
@@ -26,6 +28,7 @@ function App() {
             </div>
           }
         />
+        {/* Profile page route  */}
         <Route
           path="/profile"
           element={
@@ -35,6 +38,23 @@ function App() {
               </div>
               <div className="flex-1 h-full">
                 <Profile />
+              </div>
+              <div>
+                <Footer />
+              </div>
+            </div>
+          }
+        />
+        {/* Contact page route  */}
+        <Route
+          path="/contact"
+          element={
+            <div className="flex flex-col h-dvh">
+              <div>
+                <Navbar />
+              </div>
+              <div className="flex-1 h-full">
+                <Contact />
               </div>
               <div>
                 <Footer />
