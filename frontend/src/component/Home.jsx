@@ -23,13 +23,13 @@ const Home = () => {
           <div className="flex gap-6">
             <button
               onClick={handleSubscribe}
-              className="bg-green-500 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-green-600 transition-transform transform hover:scale-105 cursor-pointer"
+              className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:from-green-500 hover:to-green-500 transition-all duration-300 ease-in-out cursor-pointer hover:scale-105"
             >
               📩 Subscribe to Newsletter
             </button>
             <button
               onClick={handlePreBook}
-              className="bg-blue-500 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-105 cursor-pointer"
+              className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:from-blue-500 hover:to-blue-400 transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               🎟️ Pre-Book Now
             </button>

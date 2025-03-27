@@ -1,3 +1,4 @@
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
@@ -5,7 +6,9 @@ const Footer = () => {
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
           {/* Left - Brand Info */}
           <div className="text-center md:text-left">
-            <h2 className="text-2xl font-bold text-blue-300">🚀 AuthWaitlist</h2>
+            <h2 className="text-2xl font-bold text-blue-300">
+              🚀 AuthWaitlist
+            </h2>
             <p className="text-gray-400 text-sm mt-2">
               The best place to experience exciting events!
             </p>
@@ -40,25 +43,19 @@ const Footer = () => {
           </ul>
 
           {/* Right - Social Icons */}
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a
-              href="#"
-              className="hover:text-blue-300 transition duration-300"
-            >
-              🔵 FB
-            </a>
-            <a
-              href="#"
-              className="hover:text-blue-300 transition duration-300"
-            >
-              🟣 IG
-            </a>
-            <a
-              href="#"
-              className="hover:text-blue-300 transition duration-300"
-            >
-              🔵 TW
-            </a>
+          <div className="flex space-x-4">
+            <FaFacebook
+              className="text-blue-600 hover:text-blue-800 transition duration-300"
+              size={30}
+            />
+            <FaInstagram
+              className="text-pink-500 hover:text-pink-700 transition duration-300"
+              size={30}
+            />
+            <FaTwitter
+              className="text-blue-400 hover:text-blue-600 transition duration-300"
+              size={30}
+            />
           </div>
         </div>
 
