@@ -216,8 +216,16 @@ const Login = () => {
           </button>
         </div>
         <div className="w-full flex justify-center   mt-4">
-          {action === "Sign In" && <button >
-            <img src={signUpImage} onClick={handleLogin} alt="" /></button>}
+          {action === "Sign In" && (
+            <button>
+              <img
+                src={signUpImage}
+                onClick={handleLogin}
+                alt="google-signup-btn"
+                className="cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-90 focus:outline-none"
+              />
+            </button>
+          )}
         </div>
       </div>
       <ToastContainer
