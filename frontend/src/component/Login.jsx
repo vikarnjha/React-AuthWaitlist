@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import {
-  FaUser,
-  FaEnvelope,
-  FaLock,
-  FaEye,
-  FaEyeSlash
-} from "react-icons/fa";
-import GoogleButton from "react-google-button";
+import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import signUpImage from "../assets/web_dark_rd_SI.svg";
 
 const Login = () => {
   const [action, setAction] = useState("Sign Up");
@@ -58,12 +52,12 @@ const Login = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
-    if (!email || !password) return toast.error("Invalid Credentials!");
-    else {
-      return toast.success("Sign In Successfully!");
-    }
-  };
+  // const handleGoogleLogin = () => {
+  //   if (!email || !password) return toast.error("Invalid Credentials!");
+  //   else {
+  //     return toast.success("Sign In Successfully!");
+  //   }
+  // };
 
   const handleRegister = () => {
     if (!name || !email || !password || !confirmPassword)
@@ -222,15 +216,10 @@ const Login = () => {
           </button>
         </div>
         <div className="w-full flex justify-center   mt-4">
-          {action === "Sign In" && (
-            <GoogleButton
-              onClick={handleGoogleLogin}
-              className="w-full  shadow-md  hover:shadow-lg transition-all duration-300"
-            />
-          )}
+          {action === "Sign In" && <button >
+            <img src={signUpImage} onClick={handleLogin} alt="" /></button>}
         </div>
       </div>
-
       <ToastContainer
         position="top-right"
         autoClose={2000}
