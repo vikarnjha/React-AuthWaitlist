@@ -9,7 +9,7 @@ const joinNewsletter = async (req, res) => {
     console.log(user);
     await sendEmail(
       user.email,
-      `Hello! ${user.name} Thank you for joining our newsletter!`
+      user.name
     );
     await newsletterModel.create({
       user: user.name,
