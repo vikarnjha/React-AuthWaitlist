@@ -12,4 +12,4 @@ authRouter.post("/login", login);
 // Logout
 authRouter.get("/logout", logout);
 
-export default authRouter;
+export { authRouter };

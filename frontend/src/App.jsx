@@ -6,11 +6,11 @@ import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import Profile from "./component/Profile";
 import Contact from "./component/Contact";
-// import Login from "./component/Login";
+// import Auth from "./component/Auth";
 
 function App() {
   return (
-    // <Login/>
+    // <Auth/>
     <BrowserRouter>
       <Routes>
         {/* Homepage route  */}

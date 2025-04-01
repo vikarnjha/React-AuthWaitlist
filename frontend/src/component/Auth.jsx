@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import signUpImage from "../assets/web_dark_rd_SI.svg";
 
-const Login = () => {
+const Auth = () => {
   const [action, setAction] = useState("Sign Up");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -239,4 +239,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Auth;
