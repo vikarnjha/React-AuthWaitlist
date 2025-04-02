@@ -3,6 +3,6 @@ import { protectedRoute } from "../middleware/auth.js";
 import { joinNewsletter } from "../controller/user.controller.js";
 
 const userRouter = express.Router();
-userRouter.use(protectedRoute);
-userRouter.route("/newsletter").post(joinNewsletter);
+userRouter.post("/newsletter", protectedRoute, joinNewsletter);
+
 export default userRouter;
