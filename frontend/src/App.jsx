@@ -11,67 +11,66 @@ import Auth from "./component/Auth";
 function App() {
   return (
     <>
-    <Auth/>
-    <BrowserRouter>
+      <BrowserRouter>
         {/* Auth page rouge */}
-      <Routes>
-        <Route path="/" element={<Auth />} />
-      </Routes>
-    
-      <Routes>
-        {/* Homepage route  */}
-        <Route
-          path="/home"
-          element={
-            <div className="flex flex-col h-dvh">
-              <div>
-                <Navbar />
+        <Routes>
+          <Route path="/" element={<Auth />} />
+        </Routes>
+
+        <Routes>
+          {/* Homepage route  */}
+          <Route
+            path="/home"
+            element={
+              <div className="flex flex-col h-dvh">
+                <div>
+                  <Navbar />
+                </div>
+                <div className="flex-1 h-full">
+                  <Home />
+                </div>
+                <div>
+                  <Footer />
+                </div>
               </div>
-              <div className="flex-1 h-full">
-                <Home />
+            }
+          />
+          {/* Profile page route  */}
+          <Route
+            path="/profile"
+            element={
+              <div className="flex flex-col h-dvh">
+                <div>
+                  <Navbar />
+                </div>
+                <div className="flex-1 h-full">
+                  <Profile />
+                </div>
+                <div>
+                  <Footer />
+                </div>
               </div>
-              <div>
-                <Footer />
+            }
+          />
+          {/* Contact page route  */}
+          <Route
+            path="/contact"
+            element={
+              <div className="flex flex-col h-dvh">
+                <div>
+                  <Navbar />
+                </div>
+                <div className="flex-1 h-full">
+                  <Contact />
+                </div>
+                <div>
+                  <Footer />
+                </div>
               </div>
-            </div>
-          }
-        />
-        {/* Profile page route  */}
-        <Route
-          path="/profile"
-          element={
-            <div className="flex flex-col h-dvh">
-              <div>
-                <Navbar />
-              </div>
-              <div className="flex-1 h-full">
-                <Profile />
-              </div>
-              <div>
-                <Footer />
-              </div>
-            </div>
-          }
-        />
-        {/* Contact page route  */}
-        <Route
-          path="/contact"
-          element={
-            <div className="flex flex-col h-dvh">
-              <div>
-                <Navbar />
-              </div>
-              <div className="flex-1 h-full">
-                <Contact />
-              </div>
-              <div>
-                <Footer />
-              </div>
-            </div>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
