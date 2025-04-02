@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-// import signUpImage from "../assets/web_dark_rd_SI.svg";
+import signUpImage from "../assets/web_dark_rd_SI.svg";
 
 const API_URL = "https://react-authwaitlist.onrender.com/api/auth"; // Update with your backend route
 
@@ -14,6 +14,14 @@ const Auth = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleGoogleLogin = () => {
+    return toast.info("Google login clicked but not implemented yet!")
+  };
+
+  const handleForgotPassword = () => {
+    toast.info("Forgot password functionality not implemented yet!");
+  };
 
   const togglePassword = () => setShowPassword(!showPassword);
   const toggleConfirmPassword = () =>
@@ -125,6 +133,15 @@ const Auth = () => {
           </div>
         </div>
 
+        {/* Forgot Password (Sign In Only) */}
+        {action === "Sign In" && (
+          <div className="text-right text-blue-500 active:scale-95 transition-transform cursor-pointer">
+            <a href="#" className="hover:text-blue-400 transition" onClick={handleForgotPassword}>
+              Forgot Password?
+            </a>
+          </div>
+        )}
+
         {action === "Sign Up" && (
           <div className="mb-3">
             <label className="block text-gray-400 mb-1">Confirm Password</label>
@@ -166,9 +183,21 @@ const Auth = () => {
             Sign In
           </button>
         </div>
+        <div className="w-full flex justify-center mt-4">
+          {action === "Sign In" && (
+            <button>
+              <img
+                src={signUpImage}
+                onClick={handleGoogleLogin}
+                alt="google-signup-btn"
+                className="cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-90 focus:outline-none"
+              />
+            </button>
+          )}
+        </div>
 
-        <ToastContainer position="top-right" autoClose={2000} />
       </div>
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 };
