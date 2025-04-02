@@ -150,7 +150,7 @@ const Auth = () => {
 
         <div className="flex justify-between gap-3">
           <button
-            className="w-full py-2 mt-3 bg-blue-600 hover:bg-blue-500 rounded-lg"
+            className="w-full py-2 mt-3 bg-blue-600 active:scale-90 active:bg-blue-700 hover:bg-blue-700 rounded-lg cursor-pointer "
             onClick={
               action === "Sign Up" ? handleRegister : () => setAction("Sign Up")
             }
@@ -158,7 +158,7 @@ const Auth = () => {
             Sign Up
           </button>
           <button
-            className="w-full py-2 mt-3 bg-blue-600 hover:bg-blue-500 rounded-lg"
+            className="w-full py-2 mt-3 bg-blue-600 active:scale-90 active:bg-blue-700 hover:bg-blue-700 rounded-lg cursor-pointer"
             onClick={
               action === "Sign In" ? handleLogin : () => setAction("Sign In")
             }
