@@ -29,11 +29,11 @@ const sendEmail = async (to, name) => {
           <div class="header">Welcome to Our Newsletter!</div>
           <div class="content">
             <p>Hello <strong>${name}</strong>,</p>
-            <p>Thank you for joining our newsletter! We are excited to have you on board.</p>
+            <p>Thank you for joining our event newsletter! We are excited to have you on board.</p>
             <p>Stay tuned for updates, special offers, and insightful content delivered right to your inbox.</p>
             <a href="#" class="button">Explore More</a>
           </div>
-          <div class="footer">&copy; 2025 Your Company. All rights reserved.</div>
+          <div class="footer">&copy; 2025 EventX. All rights reserved.</div>
         </div>
       </body>
       </html>
