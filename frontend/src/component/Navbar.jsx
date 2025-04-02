@@ -10,7 +10,7 @@ const Navbar = () => {
       <nav className="bg-gradient-to-r from-gray-800 to-gray-900 bg-opacity-90 backdrop-blur-lg shadow-md p-4 md:px-8 flex justify-between items-center  w-full  z-50">
         {/* Logo */}
         <h1 className="text-2xl font-extrabold tracking-wide text-blue-300">
-          🚀 AuthWaitlist
+          🚀 EventX
         </h1>
 
         {/* Desktop Menu */}
@@ -24,7 +24,7 @@ const Navbar = () => {
                     navigate(`/${item.toLowerCase()}`);
                   }
                   else if (item === "Home") {
-                    navigate("/");
+                    navigate(`/${item.toLowerCase()}`);
                   }
                   else if (item === "Contact") {
                     navigate(`/${item.toLowerCase()}`);
