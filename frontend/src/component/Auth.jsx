@@ -33,7 +33,7 @@ const Auth = () => {
         { name, email, password },
         { withCredentials: true }
       );
-  
+      
       // You can use the response object here
       if (response.status === 200) {
         toast.success("Sign Up Successful!");
