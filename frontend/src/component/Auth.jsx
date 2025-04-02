@@ -39,11 +39,10 @@ const Auth = () => {
       const response = await axios.post(
         `${API_URL}/register`,
         { name, email, password },
-        { withCredentials: true }
+        { withCredentials: true } // Important to include cookies
       );
-      
-      // You can use the response object here
-      if (response.status === 200) {
+  
+      if (response.data.success) {
         toast.success("Sign Up Successful!");
         setAction("Sign In");
       }
@@ -51,6 +50,7 @@ const Auth = () => {
       toast.error(error.response?.data?.message || "Signup failed!");
     }
   };
+  
   
   const handleLogin = async () => {
     if (!email || !password) {
@@ -61,18 +61,18 @@ const Auth = () => {
       const response = await axios.post(
         `${API_URL}/login`,
         { email, password },
-        { withCredentials: true }
+        { withCredentials: true } // Important to include cookies
       );
   
-      // You can use the response object here
-      if (response.status === 200) {
+      if (response.data.success) {
         toast.success("Sign In Successful!");
-        setTimeout(() => (window.location.href = "/home"), 2000);
+        setTimeout(() => (window.location.href = "/profile"), 2000);
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed!");
     }
   };
+  
   
 
   return (
