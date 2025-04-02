@@ -11,7 +11,14 @@ connectDb();
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(
+
+  {
+    origin: ["http://localhost:5173", "https://react-auth-waitlist.vercel.app"],
+    credentials: true,
+  }
+  
+));
 
 // Routes
 app.get("/", (req, res) => res.send("Hello World!"));
