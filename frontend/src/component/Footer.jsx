@@ -7,13 +7,13 @@ const Footer = () => {
           {/* Left - Brand Info */}
           <div>
             <p className="text-center text-gray-400 text-xs mx-2 border-gray-700 px-1">
-              The best place to experience exciting events!
+              The ultimate place to explore and connect with events.
             </p>
           </div>
 
           {/* Bottom - Copyright */}
           <div className="text-center text-gray-400 text-xs mx-2 border-gray-700 px-1">
-              © {new Date().getFullYear()} AuthWaitlist. All rights reserved.
+              © {new Date().getFullYear()} EventX. All rights reserved.
             </div>
 
           {/* Right - Social Icons */}
