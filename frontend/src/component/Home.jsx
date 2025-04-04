@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const Home = () => {
-  const [message, setMessage] = useState("");
 
   const handleSubscribe = () =>
-    setMessage("🎉 You have successfully subscribed to our newsletter!");
-  const handlePreBook = () => setMessage("✅ Your pre-booking is confirmed!");
+    toast.info("🎉 You have successfully subscribed to our newsletter!");
+  const handlePreBook = () => 
+    toast.info("✅ Your pre-booking is confirmed!");
   return (
     <>
       <div className="h-full bg-gradient-to-r from-gray-600 to-gray-900 grid place-content-center  text-white">
-
         {/* Landing Page */}
         <div className="flex flex-col items-center justify-center   text-center px-4">
           <h2 className="text-5xl font-extrabold mb-4 drop-shadow-lg">
@@ -34,14 +33,9 @@ const Home = () => {
               🎟️ Pre-Book Now
             </button>
           </div>
-
-          {message && (
-            <p className="pt-3 mt-5 text-x font-semibold text-black text-center bg-white bg-opacity-20 p-2 rounded-lg shadow-md">
-              {message}
-            </p>
-          )}
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
