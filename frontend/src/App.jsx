@@ -12,14 +12,7 @@ import Card from "./component/Card";
 function App() {
   return (
     <>
-      <Card
-        image="https://via.placeholder.com/400x200?text=React+Summit"
-        title="React Summit 2025"
-        description="Join the largest React conference with amazing speakers, workshops, and more."
-        onAddToCart={() => console.log("Added to cart")}
-        onSubscribe={() => console.log("Subscribed")}
-        onRegister={() => console.log("Registered")}
-      />
+      
     </>
   );
 }
