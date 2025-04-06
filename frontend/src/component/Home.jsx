@@ -16,6 +16,16 @@ const Home = () => {
           onSubscribe={() => toast.success("Subscribed")}
           onRegister={() => toast.success("Registered")}
         />
+        {/* Sample card */}
+        <Card
+          image="https://via.placeholder.com/400x200?text=React+Summit"
+          title="React Summit 2025"
+          description="Join the largest React conference with amazing speakers, workshops, and more."
+          onAddToCart={() => toast.success("Added to cart")}
+          onSubscribe={() => toast.success("Subscribed")}
+          onRegister={() => toast.success("Registered")}
+        />
+
       </div>
       <ToastContainer />
     </>
