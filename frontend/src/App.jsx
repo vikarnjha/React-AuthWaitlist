@@ -7,75 +7,77 @@ import Footer from "./component/Footer";
 import Profile from "./component/Profile";
 import Contact from "./component/Contact";
 import Auth from "./component/Auth";
-import Card from "./component/Card";
+// import Card from "./component/Card";
 
 function App() {
   return (
     <>
-      
+      {/* <Home/> */}
+
+      <BrowserRouter>
+        {/* Auth page rouge */}
+        <Routes>
+          <Route path="/" element={<Auth />} />
+        </Routes>
+
+        <Routes>
+          {/* Homepage route  */}
+          <Route
+            path="/home"
+            element={
+              <div className="flex flex-col h-dvh">
+                <div>
+                  <Navbar />
+                </div>
+                <div className="flex-1 h-full">
+                  <Home />
+                </div>
+                <div>
+                  <Footer />
+                </div>
+              </div>
+            }
+          />
+          {/* Profile page route  */}
+          <Route
+            path="/profile"
+            element={
+              <div className="flex flex-col h-dvh">
+                <div>
+                  <Navbar />
+                </div>
+                <div className="flex-1 h-full">
+                  <Profile />
+                </div>
+                <div>
+                  <Footer />
+                </div>
+              </div>
+            }
+          />
+          {/* Contact page route  */}
+          <Route
+            path="/contact"
+            element={
+              <div className="flex flex-col h-dvh">
+                <div>
+                  <Navbar />
+                </div>
+                <div className="flex-1 h-full">
+                  <Contact />
+                </div>
+                <div>
+                  <Footer />
+                </div>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
 
 export default App;
 
-// <BrowserRouter>
-//         {/* Auth page rouge */}
-//         <Routes>
-//           <Route path="/" element={<Auth />} />
-//         </Routes>
 
-//         <Routes>
-//           {/* Homepage route  */}
-//           <Route
-//             path="/home"
-//             element={
-//               <div className="flex flex-col h-dvh">
-//                 <div>
-//                   <Navbar />
-//                 </div>
-//                 <div className="flex-1 h-full">
-//                   <Home />
-//                 </div>
-//                 <div>
-//                   <Footer />
-//                 </div>
-//               </div>
-//             }
-//           />
-//           {/* Profile page route  */}
-//           <Route
-//             path="/profile"
-//             element={
-//               <div className="flex flex-col h-dvh">
-//                 <div>
-//                   <Navbar />
-//                 </div>
-//                 <div className="flex-1 h-full">
-//                   <Profile />
-//                 </div>
-//                 <div>
-//                   <Footer />
-//                 </div>
-//               </div>
-//             }
-//           />
-//           {/* Contact page route  */}
-//           <Route
-//             path="/contact"
-//             element={
-//               <div className="flex flex-col h-dvh">
-//                 <div>
-//                   <Navbar />
-//                 </div>
-//                 <div className="flex-1 h-full">
-//                   <Contact />
-//                 </div>
-//                 <div>
-//                   <Footer />
-//                 </div>
-//               </div>
-//             }
-//           />
-//         </Routes>
-//       </BrowserRouter>
