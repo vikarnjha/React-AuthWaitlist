@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import signUpImage from "../assets/web_dark_rd_SI.svg";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "https://react-authwaitlist.onrender.com/api/auth"; // Update with your backend route
 
@@ -14,6 +15,8 @@ const Auth = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const navigate=useNavigate();
 
   const handleGoogleLogin = () => {
     return toast.info("Google login clicked but not implemented yet!")
@@ -44,7 +47,7 @@ const Auth = () => {
   
       if (response.data.success) {
         toast.success("Sign Up Successful!");
-        setAction("Sign In");
+        navigate("/home")
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Signup failed!");
@@ -66,7 +69,8 @@ const Auth = () => {
   
       if (response.data.success) {
         toast.success("Sign In Successful!");
-        setTimeout(() => (window.location.href = "/home"), 2000);
+        navigate("/home")
+
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed!");
