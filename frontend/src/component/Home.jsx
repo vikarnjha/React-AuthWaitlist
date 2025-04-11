@@ -17,6 +17,10 @@ const Home = () => {
               image={event.image}
               title={event.title}
               description={event.description}
+              category={event.category}
+              price={event.price}
+              date={event.date}
+              location={event.location}
               onAddToCart={() => toast.success("Added to cart")}
               onSubscribe={() => toast.success("Subscribed")}
               onRegister={() => toast.success("Registered")}
