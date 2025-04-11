@@ -7,7 +7,6 @@ import Footer from "./component/Footer";
 import Profile from "./component/Profile";
 import Contact from "./component/Contact";
 import Auth from "./component/Auth";
-// import Card from "./component/Card";
 
 function App() {
   return (
