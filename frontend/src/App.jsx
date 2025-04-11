@@ -28,7 +28,7 @@ function App() {
                 <div>
                   <Navbar />
                 </div>
-                <div className="flex-1 h-full">
+                <div>
                   <Home />
                 </div>
                 <div>
