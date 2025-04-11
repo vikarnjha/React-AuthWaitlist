@@ -1,5 +1,6 @@
 import { ToastContainer, toast } from "react-toastify";
 import Card from "./Card";
+import eventsData from "../data/events.json";
 
 const Home = () => {
   // const handleSubscribe = () =>
@@ -7,28 +8,23 @@ const Home = () => {
   // const handlePreBook = () => toast.info("✅ Your pre-booking is confirmed!");
   return (
     <>
-      <div className="h-full bg-gradient-to-r from-gray-600 to-gray-900 place-content-center  text-white">
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4"> */}
-          {/* Sample card 1 */}
-        <Card
-          image="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg"
-          title="Tech Innovators Meetup 2025"
-          description="A gathering of the brightest minds in technology, innovation, and software development."
-          onAddToCart={() => toast.success("Added to cart")}
-          onSubscribe={() => toast.success("Subscribed")}
-          onRegister={() => toast.success("Registered")}
-        />
-        {/* Sample card 2 */}
-        <Card
-          image="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg"
-          title="Creative Design Conference"
-          description="Explore the future of design and creativity with top designers and visual artists."
-          onAddToCart={() => toast.success("Added to cart")}
-          onSubscribe={() => toast.success("Subscribed")}
-          onRegister={() => toast.success("Registered")}
-        />
+      <div className="min-h-screen bg-gradient-to-r from-gray-600 to-gray-900 py-8 px-6">
+        {/* Dynamic value  */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {eventsData.map((event, idx) => (
+            <Card
+              key={idx}
+              image={event.image}
+              title={event.title}
+              description={event.description}
+              onAddToCart={() => toast.success("Added to cart")}
+              onSubscribe={() => toast.success("Subscribed")}
+              onRegister={() => toast.success("Registered")}
+            />
+          ))}
         </div>
-      {/* </div> */}
+      </div>
+
       <ToastContainer />
     </>
   );
