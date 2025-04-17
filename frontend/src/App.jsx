@@ -7,6 +7,7 @@ import Footer from "./component/Footer";
 import Profile from "./component/Profile";
 import Contact from "./component/Contact";
 import Auth from "./component/Auth";
+import Loading from "./loading/Loading";
 
 function App() {
   return (

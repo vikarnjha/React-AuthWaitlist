@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import signUpImage from "../assets/web_dark_rd_SI.svg";
 import { useNavigate } from "react-router-dom";
+import Loading from "../loading/Loading";
 
 
 const API_URL = "https://react-authwaitlist.onrender.com/api/auth"; // Update with your backend route
@@ -16,11 +17,12 @@ const Auth = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
-    return toast.info("Google login clicked but not implemented yet!")
+    return toast.info("Google login clicked but not implemented yet!");
   };
 
   const handleForgotPassword = () => {
@@ -31,57 +33,61 @@ const Auth = () => {
   const toggleConfirmPassword = () =>
     setShowConfirmPassword(!showConfirmPassword);
 
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
     if (!name || !email || !password || !confirmPassword) {
       return toast.warn("All fields are required!");
     }
     if (password !== confirmPassword) {
       return toast.warn("Passwords do not match!");
     }
-  
+    e.preventDefault();
+    setIsLoading(true); // Show loading
     try {
       const response = await axios.post(
         `${API_URL}/register`,
         { name, email, password },
         { withCredentials: true } // Important to include cookies
       );
-  
+
       if (response.data.success) {
         toast.success("Sign Up Successful!");
-        navigate("/home")
+        navigate("/home");
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Signup failed!");
+    } finally {
+      setIsLoading(false); // Hide loading
     }
   };
-  
-  
-  const handleLogin = async () => {
+
+  const handleLogin = async (e) => {
     if (!email || !password) {
       return toast.error("Invalid Credentials!");
     }
-  
+    e.preventDefault();
+    setIsLoading(true); // Show loading
     try {
       const response = await axios.post(
         `${API_URL}/login`,
         { email, password },
         { withCredentials: true } // Important to include cookies
       );
-  
+
       if (response.data.success) {
         toast.success("Sign In Successful!");
-        navigate("/home")
-
+        navigate("/home");
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed!");
+    }finally {
+      setIsLoading(false); // Hide loading
     }
   };
-  
-  
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <>
+      {isLoading && <Loading />}
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <div className="bg-gray-900 p-6 md:p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-center mb-6">{action}</h2>
 
@@ -141,7 +147,11 @@ const Auth = () => {
         {/* Forgot Password (Sign In Only) */}
         {action === "Sign In" && (
           <div className="text-right text-blue-500 active:scale-95 transition-transform cursor-pointer">
-            <a href="#" className="hover:text-blue-400 transition" onClick={handleForgotPassword}>
+            <a
+              href="#"
+              className="hover:text-blue-400 transition"
+              onClick={handleForgotPassword}
+            >
               Forgot Password?
             </a>
           </div>
@@ -200,10 +210,10 @@ const Auth = () => {
             </button>
           )}
         </div>
-
       </div>
       <ToastContainer position="top-right" autoClose={2000} />
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -27,6 +27,14 @@ const Loading = () => {
 };
 
 const StyledWrapper = styled.div`
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
   .loader {
     display: flex;
     justify-content: center;
@@ -68,6 +76,7 @@ const StyledWrapper = styled.div`
     animation: outline-keys var(--animation);
   }
 
+  /* Delay for smooth staggering animation */
   .circle:nth-child(2) {
     animation-delay: 0.3s;
   }
@@ -80,10 +89,6 @@ const StyledWrapper = styled.div`
     animation-delay: 0.9s;
   }
 
-  .circle:nth-child(5) {
-    animation-delay: 1.2s;
-  }
-
   .circle:nth-child(2) .dot {
     animation-delay: 0.3s;
   }
@@ -94,10 +99,6 @@ const StyledWrapper = styled.div`
 
   .circle:nth-child(4) .dot {
     animation-delay: 0.9s;
-  }
-
-  .circle:nth-child(5) .dot {
-    animation-delay: 1.2s;
   }
 
   .circle:nth-child(1) .outline {
@@ -116,21 +117,15 @@ const StyledWrapper = styled.div`
     animation-delay: 1.8s;
   }
 
-  .circle:nth-child(5) .outline {
-    animation-delay: 2.1s;
-  }
-
   @keyframes circle-keys {
     0% {
       transform: scale(1);
       opacity: 1;
     }
-
     50% {
       transform: scale(1.5);
       opacity: 0.5;
     }
-
     100% {
       transform: scale(1);
       opacity: 1;
@@ -141,11 +136,9 @@ const StyledWrapper = styled.div`
     0% {
       transform: scale(1);
     }
-
     50% {
       transform: scale(0);
     }
-
     100% {
       transform: scale(1);
     }
@@ -158,7 +151,6 @@ const StyledWrapper = styled.div`
       outline-offset: 0;
       opacity: 1;
     }
-
     100% {
       transform: scale(1);
       outline: solid 0 transparent;
