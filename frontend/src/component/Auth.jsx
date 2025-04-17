@@ -5,6 +5,7 @@ import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import signUpImage from "../assets/web_dark_rd_SI.svg";
 import { useNavigate } from "react-router-dom";
 
+
 const API_URL = "https://react-authwaitlist.onrender.com/api/auth"; // Update with your backend route
 
 const Auth = () => {
