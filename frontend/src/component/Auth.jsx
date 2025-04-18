@@ -5,11 +5,13 @@ import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import signUpImage from "../assets/web_dark_rd_SI.svg";
 import { useNavigate } from "react-router-dom";
 import Loading from "../loading/Loading";
+import { useAuth } from "../context/AuthContext";
 
 
 const API_URL = "https://react-authwaitlist.onrender.com/api/auth"; // Update with your backend route
 
 const Auth = () => {
+  const { setUser } = useAuth(); // get setUser from context
   const [action, setAction] = useState("Sign Up");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,6 +52,7 @@ const Auth = () => {
       );
 
       if (response.data.success) {
+        setUser(response.data.user);
         toast.success("Sign Up Successful!");
         navigate("/home");
       }
@@ -74,6 +77,7 @@ const Auth = () => {
       );
 
       if (response.data.success) {
+        setUser(response.data.user);
         toast.success("Sign In Successful!");
         navigate("/home");
       }
@@ -86,7 +90,7 @@ const Auth = () => {
 
   return (
     <>
-      {isLoading && <Loading />}
+      {isLoading && <Loading />}  // This will show the loading component if isLoading is true
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <div className="bg-gray-900 p-6 md:p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-center mb-6">{action}</h2>
