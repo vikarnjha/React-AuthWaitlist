@@ -1,7 +1,9 @@
 import { FaUserCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 const Profile = () => {
+  const { user } = useAuth();
   const [passwords, setPasswords] = useState({
     currentPassword: "",
     newPassword: "",
@@ -26,6 +28,8 @@ const Profile = () => {
   };
 
   return (
+    <>
+    {/* Profile Section */}
     <div className="h-full flex justify-center items-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <div className="bg-gray-900 p-6 rounded-2xl shadow-xl w-96 text-center">
         {/* Profile Image */}
@@ -34,8 +38,8 @@ const Profile = () => {
         </div>
 
         {/* User Info */}
-        <h2 className="text-2xl font-semibold mt-4">John Doe</h2>
-        <p className="text-gray-300 mt-2">johndoe@example.com</p>
+        <h2 className="text-2xl font-semibold mt-4">{user.name || "User"}</h2>
+        <p className="text-gray-300 mt-2">{user.email || "Email"}</p>
 
         {/* Change Password Section */}
         <div className="mt-6 text-left">
@@ -81,6 +85,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

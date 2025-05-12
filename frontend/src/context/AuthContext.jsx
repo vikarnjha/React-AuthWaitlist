@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   // Verify user on page load
   useEffect(() => {
     axios
-      .get("https://react-authwaitlist.onrender.com/api/auth", { withCredentials: true })
+      .get("https://react-authwaitlist.onrender.com/api/auth/verify", { withCredentials: true })
       .then((res) => {
         setUser(res.data.user);
         setLoading(false);
